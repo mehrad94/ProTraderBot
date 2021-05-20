@@ -6,7 +6,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 // const configs = require("./values/configs");
 
-// const { adminRoutes, userRoutes } = require("./routes");
+const routes = require("./routes");
 
 // mongoose
 //   .connect(configs.MONGOOSE_CONNECTION_URL, configs.MONGOOSE_CONFIG)
@@ -22,7 +22,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // app.use("/api/v1/admin/product", adminRoutes.product);
-
+app.use("/api/wallet", routes.wallet);
+app.use("/api/trade", routes.trade);
 // CORS Settings
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
